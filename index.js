@@ -1,6 +1,7 @@
 'use strict';
 
 const VersionChecker = require('ember-cli-version-checker');
+const cacheKeyForTree = require('calculate-cache-key-for-tree');
 
 module.exports = {
   name: require('./package').name,
@@ -43,5 +44,9 @@ module.exports = {
     });
 
     return transpiledVendorTree;
+  },
+
+  cacheKeyForTree(treeType) {
+    return cacheKeyForTree(treeType, this);
   },
 };
